@@ -6,6 +6,7 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { s3Storage } from '@payloadcms/storage-s3'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -35,5 +36,23 @@ export default buildConfig({
   plugins: [
     payloadCloudPlugin(),
     // storage-adapter-placeholder
+    s3Storage({
+      collections: {
+        media: {
+          prefix: 'media',
+        },
+      },
+      bucket: process.env.SUPABASE_BUCKET,
+      config: {
+        forcePathStyle: true,
+        credentials: {
+          accessKeyId: process.env.SUPABASE_ACCESS_KEY_ID,
+          secretAccessKey: process.env.SUPABASE_SECRET_ACCESS_KEY,
+        },
+        region: process.env.SUPABASE_REGION,
+        endpoint: process.env.SUPABASE_ENDPOINT,
+        // ... Other S3 configuration
+      },
+    }),
   ],
 })
