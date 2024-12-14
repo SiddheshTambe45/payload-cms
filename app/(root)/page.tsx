@@ -1,10 +1,9 @@
 import React from 'react'
-import Link from 'next/link'
 
 const page = () => {
   return (
-    <div>
-      <Link href="/games">Games</Link>
+    <div className="flex items-center justify-center h-screen">
+      <section className="featured-blogs max-w-7xl mx-auto"></section>
     </div>
   )
 }
