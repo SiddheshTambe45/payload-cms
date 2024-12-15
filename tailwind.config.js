@@ -12,6 +12,7 @@ import aspectRatio from '@tailwindcss/aspect-ratio'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ['class'],
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -23,10 +24,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        roboto: ['"Roboto"', ...fontFamily.sans],
-        raleway: ['"Raleway"', ...fontFamily.sans],
+        roboto: ['Roboto"', ...fontFamily.sans],
+        raleway: ['Raleway"', ...fontFamily.sans],
       },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
+      colors: {},
     },
   },
-  plugins: [aspectRatio],
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  plugins: [aspectRatio, require('tailwindcss-animate')],
 }
