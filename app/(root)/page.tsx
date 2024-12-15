@@ -74,7 +74,8 @@ import Image from 'next/image'
 import React from 'react'
 
 const Page = () => {
-  const leftImageTitle = 'Nintendo Museum – A Journey Through Time '
+  const leftImageTitle =
+    'Nintendo Museum – A Journey Through Time Nintendo Museum – A Journey Through Time Nintendo Museum – A Journey Through Time '
   const rightImageTitle = 'Exploring the Legacy of Nintendo'
 
   return (
