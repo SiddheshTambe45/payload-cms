@@ -78,8 +78,12 @@ const Page = () => {
   const leftImageTitle = 'Nintendo Museum – A Journey Through Time Nintendo Muse'
   const rightImageTitle = 'Exploring the Legacy of Nintendo'
 
+  {
+    //h-screen -> h-auto  for future reference
+  }
+
   return (
-    <div className="flex flex-col justify-start h-screen max-w-7xl mx-auto px-2 md:px-1 lg:px-0">
+    <div className="flex flex-col justify-start h-auto max-w-7xl mx-auto px-2 md:px-1 lg:px-0">
       <section className="featured-blogs w-full p-3">
         <div className="featured-blogs-upper grid grid-cols-1 lg:grid-cols-3 gap-4 h-auto">
           {/* Left Div */}
