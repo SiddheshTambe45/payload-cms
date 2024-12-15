@@ -53,4 +53,12 @@
   .custom-bg {
     background-color: rgba(212, 235, 233, 0.61);
   }
+
+  .bg-generic-viridian {
+    @apply bg-[#00846B];
+  }
+
+  .b-generic-viridian {
+    @apply border-[#00846B];
+  }
 }
