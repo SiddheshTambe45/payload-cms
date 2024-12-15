@@ -8,6 +8,7 @@
 // }
 
 import { fontFamily } from 'tailwindcss/defaultTheme'
+import aspectRatio from '@tailwindcss/aspect-ratio'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -27,5 +28,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [aspectRatio],
 }
