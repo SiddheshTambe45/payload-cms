@@ -1,5 +1,6 @@
 import React from 'react';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 type subType = {
     subtype: string,
 }
@@ -24,10 +25,10 @@ const fetchSubType = async (type?: string): Promise<subType[]> => {
             { subtype: 'comic' },
         ],
         games: [
-            { subtype: 'ps5' },
-            { subtype: 'xbox' },
-            { subtype: 'nintendo' },
-            { subtype: 'pc' },
+            { subtype: 'PS5' },
+            { subtype: 'Xbox' },
+            { subtype: 'Nintendo' },
+            { subtype: 'PC' },
         ],
     };
 
@@ -52,28 +53,35 @@ const SubTypeHeading = async ({ params }: { params: { type: string } }) => {
     const subtype: subType[] = await fetchSubType(type);
 
     return (
-        <div className="subtype">
+        <div className="subtype my-3 w-full h-[150px] flex justify-center ">
             {/* <h2>Subtypes for {type}:</h2> */}
-            <div>
+            {/* <div className=''> */}
                 {subtype.map((sub, index) => (
-                    <h3 key={index}>
-                        <a href={`#${sub.subtype}`}>{sub.subtype}</a>
-                    </h3>
+                    <h4 key={index} className='mx-3 font-semibold  generic-viridian'>
+                        <Link href={`#${sub.subtype}`}>{sub.subtype}</Link>
+                    </h4>
                 ))}
-            </div>
+            {/* </div> */}
         </div>
     )
 }
 const TypeHeading = ({ params }: { params: { type: string } }) => {
     const type: string = params.type;
+
     // Validate `type` parameter and redirect if invalid
     if (!type || type.trim() === '') {
         redirect('/');
     }
+
     return (
-        <h1>{type}</h1>
-    )
-    
-}
+        <div className="typediv w-full h-[250px] custom-bg flex justify-center">
+            <Link href={`#${type}`} >
+                <h1 className='heading-font h2 font-bold'>
+                    {type.charAt(0).toUpperCase() + type.slice(1)} {/* Corrected this line */}
+                </h1>
+            </Link>
+        </div>
+    );
+};
 
 export {TypeHeading , SubTypeHeading}

@@ -50,4 +50,7 @@
   .spanish-gray {
     @apply text-[#999999];
   }
+    .custom-bg {
+      background-color: rgba(212, 235, 233, 0.61);
+    }
 }
