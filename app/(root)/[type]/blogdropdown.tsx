@@ -2,6 +2,7 @@ import React from 'react';
 import BlogCard from './cardComp';
 import {TypeHeading, SubTypeHeading } from './TypeHeading';
 import HeroSection from './HeroSection';
+import TypeSideBar from './sidebar';
 type BlogCardStruct = {
     title: string;
     description: string;
@@ -80,8 +81,9 @@ const Dropdown = async ({ params }: { params: { type: string } }) => {
 
             {sidebarBlogs.length > 0 ? (
                 <>
-                <h1>this is side bar</h1>
-                <BlogCard blogs={sidebarBlogs} />
+                {/* <h1>this is side bar</h1> */}
+                        {/* <BlogCard blogs={sidebarBlogs} /> */}
+                        <TypeSideBar params={{blogs : sidebarBlogs.slice(1)}} />
                 </>
             ) : (
                 <p className="text-gray-600">No blogs found for this category.</p>
