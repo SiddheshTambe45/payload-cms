@@ -20,13 +20,13 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-2">
+        <div className="md:flex md:justify-end lg:justify-center md:items-center gap-2 hidden">
           <p className="text-white font-extrabold !important">
-            <span className="text-white">@2024 -25 Technikaz All Rights Reserved</span>
+            <span className="text-white">@2024-25 Technikaz All Rights Reserved</span>
           </p>
         </div>
 
-        <div></div>
+        <div className="hidden lg:flex"></div>
       </div>
     </footer>
   )

@@ -6,7 +6,7 @@ import { Search } from 'lucide-react' // Import the search icon
 
 const Navbar = () => {
   return (
-    <nav className="flex flex-col justify-start max-w-7xl mx-auto px-2 md:px-1 lg:px-0">
+    <nav className="flex flex-col justify-start max-w-7xl mx-auto px-0 border-b-2 border-black">
       <div className="bg-black text-white flex justify-between items-center p-3">
         <div className="flex justify-start items-center gap-2">
           <div>
@@ -30,32 +30,32 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="flex justify-between items-center p-3">
+      <div className="flex justify-between items-center p-3 gap-24">
         <div className="flex justify-start items-center gap-2">
           <Link href="/">
             <Image src="/assets/icons/logo-full.png" width={180} height={45} alt="Technikaz-logo" />
           </Link>
         </div>
 
-        <div className="flex justify-start items-center gap-12">
+        <div className="lg:flex lg:justify-start lg:items-center gap-12 hidden">
           <Link className="font-raleway font-black" href="/games">
             GAMES
           </Link>
-          <Link className="font-raleway font-bold" href="/tech">
+          <Link className="font-raleway font-black" href="/tech">
             TECH
           </Link>
-          <Link className="font-raleway font-bold" href="/entertainment">
+          <Link className="font-raleway font-black" href="/entertainment">
             ENTERTAINMENT
           </Link>
-          <Link className="font-raleway font-bold" href="/mobiles">
+          <Link className="font-raleway font-black" href="/mobiles">
             MOBILES
           </Link>
-          <Link className="font-raleway font-bold" href="/stock">
+          <Link className="font-raleway font-black" href="/stock">
             STOCK
           </Link>
         </div>
 
-        <div className="flex justify-end items-center gap-2">
+        <div className="flex justify-end items-center gap-2 ">
           <div className="relative">
             <Search className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-300" />
             <Input
