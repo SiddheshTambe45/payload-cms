@@ -53,7 +53,7 @@ const SubTypeHeading = async ({ params }: { params: { type: string } }) => {
     const subtype: subType[] = await fetchSubType(type);
 
     return (
-        <div className="subtype my-3 w-full h-[150px] flex justify-center ">
+        <div className="subtype my-3 w-full h-[150px] flex justify-center m-0 p-0">
             {/* <h2>Subtypes for {type}:</h2> */}
             {/* <div className=''> */}
                 {subtype.map((sub, index) => (
@@ -74,7 +74,7 @@ const TypeHeading = ({ params }: { params: { type: string } }) => {
     }
 
     return (
-        <div className="typediv w-full h-[250px] custom-bg flex justify-center">
+        <div className="typediv w-full h-[250px] custom-bg flex justify-center m-0 p-0">
             <Link href={`#${type}`} >
                 <h1 className='heading-font h2 font-bold'>
                     {type.charAt(0).toUpperCase() + type.slice(1)} {/* Corrected this line */}

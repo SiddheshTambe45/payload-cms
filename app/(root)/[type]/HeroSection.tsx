@@ -9,86 +9,125 @@ type BlogCardStruct = {
     imageUrl: string;
 };
 
-type BlogCardProps = {
-    blogs: BlogCardStruct[];
-};
+const fetchBlogs = async (type?: string, filter?: string): Promise<BlogCardStruct[]> => {
+    // Mock fetching blog data (replace with actual API call in production)
+    const allBlogs: BlogCardStruct[] = [
+        { title: 'Understanding Next.js sdfdfdfdmfd df df dfd fd fd fd fd fdf df df d fd fd fd fd d', description: 'Learn Next.js basics d ', slug: 'understanding-nextjsd', imageUrl: "/assets/images/image15.png" },
+        { title: 'Understanding Next.js sdfdfdfdmfd df df dfd fd fd fd fd fdf df df d fd fd fd fd ', description: 'Learn Next.js basics', slug: 'understanding-nextjs', imageUrl: "/assets/images/image15.png" },
+        { title: 'React vs Vue sdfdfdfdmfd df df dfd fd fd fd fd fdf df df d fd fd fd fd ', description: 'Compare React and Vue.js', slug: 'react-vs-vue2', imageUrl: "/assets/images/image15.png" },
+        { title: 'Advanced TypeScript sdfdfdfdmfd df df dfd fd fd fd fd fdf df df d fd fd fd fd ', description: 'Deep dive into TypeScript', slug: 'advanced-typescript2', imageUrl: "/assets/images/image15.png" },
+        { title: 'React vs Vue sdfdfdfdmfd df df dfd fd fd fd fd fdf df df d fd fd fd fd ', description: 'Compare React and Vue.js', slug: 'react-vs-vue', imageUrl: "/assets/images/image15.png" },
+        { title: 'Advanced TypeScript sdfdfdfdmfd df df dfd fd fd fd fd fdf df df d fd fd fd fd ', description: 'Deep dive into TypeScript', slug: 'advanced-typescript', imageUrl: "/assets/images/image15.png" },
+        { title: 'Advanced TypeScript sdfdfdfdmfd df df dfd fd fd fd fd fdf df df d fd fd fd fd ', description: 'Deep dive into TypeScript', slug: 'advanced-typescriptv', imageUrl: "/assets/images/image15.png" },
+    ];
 
-const HeroSection = ({ blogs }: BlogCardProps) => {
-    if (!blogs || blogs.length === 0) {
-        return <p className="text-gray-600">No blogs available.</p>;
+    // Filter blogs based on the `type` parameter if provided
+    // if (type) {
+    //     return allBlogs.filter((blog) => blog.title.toLowerCase().includes(type.toLowerCase()));
+    // }
+    if (filter === "sidebar") {
+        return allBlogs.slice(1)
     }
 
-    const firstTwoBlogs = blogs.slice(0, 2);
-    const remainingBlogs = blogs.slice(2);
+    return allBlogs;
+};
+
+const HeroSection = async ({ params }: { params: { type: string } }) => {
+    const type = params.type
+    const blogs = await fetchBlogs(params.type, 'popular');
+
+    const firstTwoBlogs = blogs.slice(0, 3);
+    const remainingBlogs = blogs.slice(3);
 
     return (
-        <div className="hero-section">
+        <div className="hero-section featured-blogs w-full p-3">
             {/* First two cards */}
-            <div className="flex justify-between mb-4 space-x-4 items-stretch">
+            <div className="featured-blogs-upper grid grid-cols-1 lg:grid-cols-3 gap-4 h-auto">
                 {/* First card with 16:9 aspect ratio */}
                 <Link
                     href={`/blogs/${firstTwoBlogs[0]?.slug}`}
-                    className="flex flex-col bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+                    className="p-0 m-0 col-span-2 flex flex-col items-start"
                     style={{ flex: "0 0 70%" }}
                 >
-                    <div className="relative w-full" style={{ aspectRatio : "16/9" }}>
+                    <div className="relative h-[400px] w-full">
+                    <div className="relative w-full h-full aspect-[16/9]" >
                         <Image
-                            src={imgrec}
+                                src="/assets/images/image15.png"
                             alt={firstTwoBlogs[0]?.title}
                             layout="fill"
                             objectFit="cover"
                             className="rounded-t-lg"
                         />
                     </div>
-                    <div className="flex-grow flex flex-col p-4">
-                        <h2 className="text-xl font-semibold">{firstTwoBlogs[0]?.title}</h2>
-                        <p className="text-gray-600">{firstTwoBlogs[0]?.description}</p>
                     </div>
+                    <p className="mt-2 text-left text-lg font-semibold leading-tight h-5 overflow-hidden">{firstTwoBlogs[0]?.title}</p>
+                        {/* <p className="text-gray-600">{firstTwoBlogs[0]?.description}</p> */}
                 </Link>
 
                 {/* Second card with 1:1 aspect ratio */}
-                <Link
-                    href={`/blogs/${firstTwoBlogs[1]?.slug}`}
-                    className="flex flex-col bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-                    style={{ flex: "0 0 30%" }}
-                >
-                    <div className="relative w-full" style={{ aspectRatio : "3/3.95" }}>
-                        <Image
-                            src={imgrec}
-                            alt={firstTwoBlogs[1]?.title}
-                            layout="fill"
-                            objectFit="cover"
-                            className="rounded-t-lg"
-                        />
-                    </div>
-                    <div className="flex-grow flex flex-col p-4">
-                        <h2 className="text-xl font-semibold">{firstTwoBlogs[1]?.title}</h2>
-                        <p className="text-gray-600">{firstTwoBlogs[1]?.description}</p>
-                    </div>
-                </Link>
+                <div className="lg:col-span-1 flex flex-col items-start">
+                    <Link
+                        href={`/blogs/${firstTwoBlogs[1]?.slug}`}
+                        className="flex flex-col items-start p-0 m-0  lg:mx-14 "
+                    // style={{ flex: "0 0 30%" }}
+                    >
+                        <div className="relative w-full aspect-[16/9]" >
+                            <Image
+                                src="/assets/images/image16.png"
+                                alt={firstTwoBlogs[1]?.title}
+                                layout="fill"
+                                objectFit="cover"
+                                className="object-cover"
+                            />
+                        </div>
+                        {/* <div className="flex-grow flex flex-col p-4"> */}
+                        <p className="mt-1 text-left text-sm font-semibold">{firstTwoBlogs[1]?.title}</p>
+                        {/* <p className="text-gray-600">{firstTwoBlogs[1]?.description}</p> */}
+                        {/* </div> */}
+                    </Link>
+                    <Link
+                        href={`/blogs/${firstTwoBlogs[2]?.slug}`}
+                        className="flex flex-col items-start p-0 m-0  lg:mx-14 "
+                   
+                    >
+                        <div className="relative w-full aspect-[16/9]" >
+                            <Image
+                                src="/assets/images/image16.png"
+                                alt={firstTwoBlogs[1]?.title}
+                                layout="fill"
+                                objectFit="cover"
+                                className="object-cover"
+                            />
+                        </div>
+                        
+                        <p className="mt-1 text-left text-sm font-semibold">{firstTwoBlogs[1]?.title}</p>
+                        
+                    </Link>
+
+        </div>
             </div>
 
             {/* Remaining blogs */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="featured-blogs-lower grid grid-cols-1 lg:grid-cols-4 gap-4 mt-10">
                 {remainingBlogs.map((blog) => (
                     <Link
                         key={blog.slug}
                         href={`/blogs/${blog.slug}`}
-                        className="flex flex-col bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+                        className="flex flex-col items-start p-0 m-0"
                     >
-                        <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                        <div className="relative w-full aspect-[16/9]">
                             <Image
                                 src={blog.imageUrl}
                                 alt={blog.title}
                                 layout="fill"
                                 objectFit="cover"
-                                className="rounded-t-lg"
+                                className="object-cover"
                             />
                         </div>
-                        <div className="p-4">
-                            <h2 className="text-xl font-semibold">{blog.title}</h2>
-                            <p className="text-gray-600">{blog.description}</p>
-                        </div>
+                        {/* <div className="p-4"> */}
+                            <p className="mt-2 text-left text-lg font-semibold">{blog.title}</p>
+                            {/* <p className="text-gray-600">{blog.description}</p> */}
+                        {/* </div> */}
                     </Link>
                 ))}
             </div>

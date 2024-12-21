@@ -14,9 +14,9 @@ const TypeSideBar = ({ params }: { params: { blogs: BlogCardProps } }) => {
 
     return (
         <>
-            <div className="googleadvertisement">
-                <h3>advertisement comes here</h3>
-            </div>
+            {/* <div className="googleadvertisement "> */}
+                {/* <h3>advertisement comes here</h3> */}
+            {/* </div> */}
             <div>
                 <div className="p-0 m-0 border-b-4 b-generic-viridian">
                     <button className="bg-generic-viridian text-white px-6 py-2">Upcomings</button>
@@ -32,13 +32,13 @@ const TypeSideBar = ({ params }: { params: { blogs: BlogCardProps } }) => {
                 </div>
             </div>
 
-            <div className="sidebarblogs border-2 b-generic-viridian p-2">
+            <div className="sidebarblogs border-2 b-generic-viridian p-0">
                 <BlogCard blogs={params.blogs} />
             </div>
 
-            <div className="googleadvertisement">
-                <h3>advertisement comes here</h3>
-            </div>
+            {/* // <div className="googleadvertisement"> */}
+                {/* // <h3>advertisement comes here</h3> */}
+            {/* // </div> */}
 
         </>
     )

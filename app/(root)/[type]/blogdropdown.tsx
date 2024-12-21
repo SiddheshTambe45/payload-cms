@@ -3,6 +3,7 @@ import BlogCard from './cardComp';
 import {TypeHeading, SubTypeHeading } from './TypeHeading';
 import HeroSection from './HeroSection';
 import TypeSideBar from './sidebar';
+import Ads from '@/components/Ads';
 type BlogCardStruct = {
     title: string;
     description: string;
@@ -42,17 +43,17 @@ const Dropdown = async ({ params }: { params: { type: string } }) => {
 
     return (
         // <div>
-        <section className="popular-recent mt-8 lg:grid lg:grid-cols-3">
+        <section className="popular-recent mt-10 lg:grid lg:grid-cols-3">
 
             <section className="lg:col-span-2 px-3">
-                <div className="border border-y-2 border-x-0 flex flex-row gap-8 my-4">
-                    <button type="button" className="h6 generic-viridian">
+                <div className="border border-y-2 border-x-0 border-black flex flex-row gap-8 my-4 py-2">
+                    <button type="button" className="h6 generic-viridian font-bold">
                         Popular
                     </button>
-                    <button type="button" className="h6 generic-viridian">
+                    <button type="button" className="h6 generic-viridian font-bold">
                         Recent
                     </button>
-                    <button type="button" className="h6 generic-viridian">
+                    <button type="button" className="h6 generic-viridian font-bold">
                         upcoming
                     </button>
                 </div>
@@ -83,7 +84,27 @@ const Dropdown = async ({ params }: { params: { type: string } }) => {
                 <>
                 {/* <h1>this is side bar</h1> */}
                         {/* <BlogCard blogs={sidebarBlogs} /> */}
-                        <TypeSideBar params={{blogs : sidebarBlogs.slice(1)}} />
+                        <div>
+                            <div className="p-0 m-0 border-b-4 b-generic-viridian">
+                                <button className="bg-generic-viridian text-white px-6 py-2">Upcomings</button>
+                            </div>
+                            <div className="flex flex-row justify-around items-center my-4">
+                                {['Games', 'Phone', 'Movies', 'More'].map((e) => (
+                                    <button type="button" key={e} className="generic-viridian font-bold">
+                                        <span className={`${e === 'Games' ? 'border-b-4 b-generic-viridian' : ''}`}>
+                                            {e}
+                                        </span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="border-2 b-generic-viridian p-2">
+
+
+                        <Ads/>
+                        {/* <TypeSideBar params={{blogs : sidebarBlogs.slice(1)}} /> */}
+                        </div>
                 </>
             ) : (
                 <p className="text-gray-600">No blogs found for this category.</p>
