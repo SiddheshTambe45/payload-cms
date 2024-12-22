@@ -4,10 +4,10 @@ import SingleBlogPage from '@/components/SingleBlogPage'
 // import Ads from '@/components/Ads'
 import Upcomings from '@/components/Upcomings'
 
-const page = async ({ params }: { params: { id: string } }) => {
+const page = async ({ params }: { params: { slug: string } }) => {
   const resolvedParams = await params // Await the params object
-  const id = resolvedParams.id || '' // Access `type` safely
-  if (!id) {
+  const slug = resolvedParams.slug || '' // Access `type` safely
+  if (!slug) {
     redirect('/')
   }
 
