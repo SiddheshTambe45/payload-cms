@@ -28,7 +28,7 @@ export default function BlogCard({ blogs }: BlogCardProps) {
             className="blogcard flex-row items-start grid grid-cols-3 my-3 w-full py-2 border border-b-2 border-x-0 border-t-0 border-black"
           >
             {/* Using next/image for better image handling */}
-            <div className="relative w-full aspect-[16/9] col-span-1">
+            <div className="relative w-full aspect-[16/9] col-span-1 h-full">
               <Image
                 className="object-cover "
                 src={blog.imageUrl} // Dynamic image URL

@@ -4,6 +4,7 @@ import { TypeHeading, SubTypeHeading } from './TypeHeading';
 import HeroSection from './CategoryHeroSection';
 import TypeSideBar from './upcomingNav';
 import Ads from '@/components/Ads';
+import UpcomingNavBar from './upcomingNav';
 type BlogCardStruct = {
     title: string;
     description: string;
@@ -76,27 +77,8 @@ const Bloglist = async ({ params }: { params: { type: string } }) => {
                     <>
                         {/* <h1>this is side bar</h1> */}
                         {/* <BlogCard blogs={sidebarBlogs} /> */}
-                        <div>
-                            <div className="p-0 m-0 border-b-4 b-generic-viridian">
-                                <button className="bg-generic-viridian text-white px-6 py-2">Upcomings</button>
-                            </div>
-                            <div className="flex flex-row justify-around items-center my-4">
-                                {['Games', 'Phone', 'Movies', 'More'].map((e) => (
-                                    <button type="button" key={e} className="generic-viridian font-bold">
-                                        <span className={`${e === 'Games' ? 'border-b-4 b-generic-viridian' : ''}`}>
-                                            {e}
-                                        </span>
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="border-2 b-generic-viridian p-2">
-
-
-                            <Ads />
-                            {/* <TypeSideBar params={{blogs : sidebarBlogs.slice(1)}} /> */}
-                        </div>
+                        <UpcomingNavBar  />
+                       
                     </>
                 ) : (
                     <p className="text-gray-600">No blogs found for this category.</p>
