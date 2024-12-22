@@ -24,8 +24,9 @@ const fetchBlogs = async (type?: string, filter?: string): Promise<BlogCardStruc
   return allBlogs;
 };
 
-const Bloglist = async ({params}: { params: { type: string } }) => {
-  const type  = params.type
+const Bloglist = async ({params}: { params: { type: string , selectedSubType:string } }) => {
+  const type = params.type;
+  const selectedSubType = params.selectedSubType;
   // Fetch server-side data
   const popularBlogs = await fetchBlogs("homepage", "popular");
   // const sidebarBlogs = await fetchBlogs("homepage", "sidebar");
@@ -35,6 +36,8 @@ const Bloglist = async ({params}: { params: { type: string } }) => {
     <BloglistClient
       initialPopularBlogs={popularBlogs}
       // initialSidebarBlogs={sidebarBlogs}
+      type={type}
+      selectedSubType={selectedSubType}
     />
   );
 };

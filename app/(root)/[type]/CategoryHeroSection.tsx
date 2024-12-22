@@ -32,8 +32,9 @@ const fetchBlogs = async (type?: string, filter?: string): Promise<BlogCardStruc
     return allBlogs;
 };
 
-const CategoryHeroSection = async ({ params }: { params: { type: string } }) => {
+const CategoryHeroSection = async ({ params }: { params: { type: string , selectedSubType:string } }) => {
     const type = params.type
+    const selectedSubType = params.selectedSubType;
     const blogs = await fetchBlogs(params.type, 'popular');
 
     const firstTwoBlogs = blogs.slice(0, 3);
@@ -43,6 +44,7 @@ const CategoryHeroSection = async ({ params }: { params: { type: string } }) => 
         <div className="hero-section featured-blogs w-full p-3">
             {/* First two cards */}
             <div className="featured-blogs-upper grid grid-cols-1 lg:grid-cols-3 gap-4 h-auto">
+                {/* {selectedSubType} */}
                 {/* First card with 16:9 aspect ratio */}
                 <Link
                     href={`/blogs/${firstTwoBlogs[0]?.slug}`}

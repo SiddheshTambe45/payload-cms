@@ -28,13 +28,23 @@ const fetchBlogs = async (type?: string, section?: string): Promise<BlogCardStru
 
 const BloglistClient = ({
     initialPopularBlogs,
+    type,
+    selectedSubType
     // initialSidebarBlogs,
 }: {
-    initialPopularBlogs: BlogCardStruct[];
+        initialPopularBlogs: BlogCardStruct[],
+        type: string,
+        selectedSubType : string
     // initialSidebarBlogs: BlogCardStruct[];
-}) => {
+    }) => {
+    
+    // const type = type;
+    // const selectedSubType = selectedSubType;
+
     const [activeSection, setActiveSection] = useState<string>("popular");
     const [displayedBlogs, setDisplayedBlogs] = useState<BlogCardStruct[]>(initialPopularBlogs);
+
+
 
     useEffect(() => {
         // Fetch blogs based on the active section
