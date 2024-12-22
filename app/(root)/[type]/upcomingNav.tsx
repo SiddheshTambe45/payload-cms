@@ -10,7 +10,7 @@ type BlogCardStruct = {
 type BlogCardProps = {
     blogs: BlogCardStruct[];
 };
-const TypeSideBar = ({ params }: { params: { blogs: BlogCardProps } }) => {
+const UpcomingNavBar = ({ params }: { params: { blogs: BlogCardProps } }) => {
 
     return (
         <>
@@ -44,4 +44,4 @@ const TypeSideBar = ({ params }: { params: { blogs: BlogCardProps } }) => {
     )
 }
 
-export default TypeSideBar
+export default UpcomingNavBar

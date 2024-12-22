@@ -32,7 +32,7 @@ const fetchBlogs = async (type?: string, filter?: string): Promise<BlogCardStruc
     return allBlogs;
 };
 
-const HeroSection = async ({ params }: { params: { type: string } }) => {
+const CategoryHeroSection = async ({ params }: { params: { type: string } }) => {
     const type = params.type
     const blogs = await fetchBlogs(params.type, 'popular');
 
@@ -49,7 +49,7 @@ const HeroSection = async ({ params }: { params: { type: string } }) => {
                     className="p-0 m-0 col-span-2 flex flex-col items-start"
                     style={{ flex: "0 0 70%" }}
                 >
-                    <div className="relative h-[400px] w-full">
+                    <div className="relative  w-full">
                     <div className="relative w-full h-full aspect-[16/9]" >
                         <Image
                                 src="/assets/images/image15.png"
@@ -65,10 +65,10 @@ const HeroSection = async ({ params }: { params: { type: string } }) => {
                 </Link>
 
                 {/* Second card with 1:1 aspect ratio */}
-                <div className="lg:col-span-1 flex flex-col items-start">
+                <div className="lg:col-span-1 gird grid-cols-1 items-start gap-4">
                     <Link
                         href={`/blogs/${firstTwoBlogs[1]?.slug}`}
-                        className="flex flex-col items-start p-0 m-0  lg:mx-14 "
+                        className="flex flex-col items-start p-0 mt-5  lg:mx-4 lg:m-0"
                     // style={{ flex: "0 0 30%" }}
                     >
                         <div className="relative w-full aspect-[16/9]" >
@@ -81,13 +81,13 @@ const HeroSection = async ({ params }: { params: { type: string } }) => {
                             />
                         </div>
                         {/* <div className="flex-grow flex flex-col p-4"> */}
-                        <p className="mt-1 text-left text-sm font-semibold">{firstTwoBlogs[1]?.title}</p>
+                        <p className="mt-2 lg:mt-1 text-left text-xl lg:text-sm font-semibold">{firstTwoBlogs[1]?.title}</p>
                         {/* <p className="text-gray-600">{firstTwoBlogs[1]?.description}</p> */}
                         {/* </div> */}
                     </Link>
                     <Link
                         href={`/blogs/${firstTwoBlogs[2]?.slug}`}
-                        className="flex flex-col items-start p-0 m-0  lg:mx-14 "
+                        className="flex flex-col items-start p-0 mt-5  lg:mx-4 lg:m-0"
                    
                     >
                         <div className="relative w-full aspect-[16/9]" >
@@ -100,7 +100,7 @@ const HeroSection = async ({ params }: { params: { type: string } }) => {
                             />
                         </div>
                         
-                        <p className="mt-1 text-left text-sm font-semibold">{firstTwoBlogs[1]?.title}</p>
+                        <p className="mt-2 lg:mt-1 text-left text-xl lg:text-sm font-semibold">{firstTwoBlogs[1]?.title}</p>
                         
                     </Link>
 
@@ -108,7 +108,7 @@ const HeroSection = async ({ params }: { params: { type: string } }) => {
             </div>
 
             {/* Remaining blogs */}
-            <div className="featured-blogs-lower grid grid-cols-1 lg:grid-cols-4 gap-4 mt-10">
+            <div className="featured-blogs-lower grid grid-cols-1 lg:grid-cols-4 gap-4 lg:mt-10 mt-5">
                 {remainingBlogs.map((blog) => (
                     <Link
                         key={blog.slug}
@@ -135,4 +135,4 @@ const HeroSection = async ({ params }: { params: { type: string } }) => {
     );
 };
 
-export default HeroSection;
+export default CategoryHeroSection;
