@@ -2,9 +2,9 @@ import React from 'react';
 import BlogCard from './cardComp';
 import { TypeHeading, SubTypeHeading } from './TypeHeading';
 import HeroSection from './CategoryHeroSection';
-import TypeSideBar from './upcomingNav';
+import TypeSideBar from '../../../components/upcomingNav';
 import Ads from '@/components/Ads';
-import UpcomingNavBar from './upcomingNav';
+import UpcomingNavBar from '../../../components/upcomingNav';
 type BlogCardStruct = {
     title: string;
     description: string;
@@ -77,8 +77,8 @@ const Bloglist = async ({ params }: { params: { type: string } }) => {
                     <>
                         {/* <h1>this is side bar</h1> */}
                         {/* <BlogCard blogs={sidebarBlogs} /> */}
-                        <UpcomingNavBar  />
-                       
+                        <UpcomingNavBar initialBlogs={sidebarBlogs}/>
+
                     </>
                 ) : (
                     <p className="text-gray-600">No blogs found for this category.</p>

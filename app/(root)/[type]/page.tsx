@@ -4,7 +4,7 @@ import Bloglist from './bloglist'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SubTypeHeading, TypeHeading } from './TypeHeading'
-import UpcomingNavBar from './upcomingNav'
+import UpcomingNavBar from '../../../components/upcomingNav'
 import CategoryHeroSection from './CategoryHeroSection'
 
 const Page = async ({ params }: { params: { type: string } }) => {
