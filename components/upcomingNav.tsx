@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import BlogCard from "../app/(root)/[type]/cardComp";
+import BlogCard from "@/app/(root)/[type]/cardComp";
 
 type BlogCardStruct = {
     title: string;
