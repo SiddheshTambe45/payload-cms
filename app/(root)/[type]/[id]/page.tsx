@@ -1,8 +1,8 @@
 import React from 'react'
 import { redirect } from 'next/navigation'
-import Image from 'next/image'
 import SingleBlogPage from '@/components/SingleBlogPage'
-import Ads from '@/components/Ads'
+// import Ads from '@/components/Ads'
+import Upcomings from '@/components/Upcomings'
 
 const page = async ({ params }: { params: { id: string } }) => {
   const resolvedParams = await params // Await the params object
@@ -22,11 +22,13 @@ const page = async ({ params }: { params: { id: string } }) => {
           ))}
         </section>
         <section className="lg:col-span-1 px-3">
-          {[0, 1, 2, 3].map((e) => (
+          {/* {[0, 1, 2, 3].map((e) => (
             <div key={e} className="m-0 p-0">
               <Ads />
             </div>
-          ))}
+          ))} */}
+
+          <Upcomings initialCategory="Games" />
         </section>
       </section>
     </div>

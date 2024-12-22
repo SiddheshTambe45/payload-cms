@@ -75,42 +75,36 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import HomepageHeroSection from './HeroSection'
-import { TechDealSection, MobileDealSection } from './dealsSection'
 import Bloglist from './[type]/bloglist'
+import SectionBlogs from '@/components/SectionBlogs'
 const Page = () => {
-    const leftImageTitle = 'Nintendo Museum – A Journey Through Time Nintendo Muse'
-    const test =
-        'Nintendo Museum – A Journey Through Time Nintendo Muse A Journey Through Time Nintendo Muse'
-    const rightImageTitle = 'Exploring the Legacy of Nintendo'
+  const leftImageTitle = 'Nintendo Museum – A Journey Through Time Nintendo Muse'
+  const test =
+    'Nintendo Museum – A Journey Through Time Nintendo Muse A Journey Through Time Nintendo Muse'
+  const rightImageTitle = 'Exploring the Legacy of Nintendo'
 
-    {
-        //h-screen -> h-auto  for future reference
-    }
+  {
+    //h-screen -> h-auto  for future reference
+  }
 
-    return (
-        <div className="flex flex-col justify-start h-auto max-w-7xl mx-auto px-2 md:px-1 lg:px-0">
-            <HomepageHeroSection />
-            
+  return (
+    <div className="flex flex-col justify-start h-auto max-w-7xl mx-auto px-2 md:px-1 lg:px-0">
+      <HomepageHeroSection />
 
-            {
-                // ads
-            }
+      {
+        // ads
+      }
 
-            <TechDealSection />
-            <MobileDealSection/>
+      <SectionBlogs type="tech" />
 
-           
+      <SectionBlogs type="mobile" />
 
-           
-
-            <Bloglist params={{}}/>
-            {
-                //ads
-            }
-
-           
-        </div>
-    )
+      <Bloglist params={{}} />
+      {
+        //ads
+      }
+    </div>
+  )
 }
 
 export default Page
