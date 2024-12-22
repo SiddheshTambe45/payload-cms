@@ -74,7 +74,9 @@ import Ads from '@/components/Ads'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-
+import HomepageHeroSection from './HeroSection'
+import { TechDealSection , MobileDealSection } from './dealsSection'
+import Bloglist from './[type]/bloglist'
 const Page = () => {
   const leftImageTitle = 'Nintendo Museum – A Journey Through Time Nintendo Muse'
   const test =
@@ -87,6 +89,7 @@ const Page = () => {
 
   return (
     <div className="flex flex-col justify-start h-auto max-w-7xl mx-auto px-2 md:px-1 lg:px-0">
+      {/* <HomepageHeroSection /> */}
       <section className="featured-blogs w-full p-3">
         <div className="featured-blogs-upper grid grid-cols-1 lg:grid-cols-3 gap-4 h-auto">
           {/* Left Div */}
@@ -143,6 +146,9 @@ const Page = () => {
         // ads
       }
 
+      {/* <TechDealSection /> */}
+      {/* <MobileDealSection/> */}
+
       <section className="Tech-Deals mt-10 p-3">
         <Link className="h5 generic-viridian" href="/tech-deals">
           <span className="font-bold">Tech Deals</span> | See All
@@ -185,6 +191,7 @@ const Page = () => {
         </div>
       </section>
 
+          {/* <Bloglist params={{}}/> */}
       {
         //ads
       }

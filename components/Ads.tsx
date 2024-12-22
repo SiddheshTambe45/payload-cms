@@ -7,7 +7,7 @@ const Ads = () => {
     'leftImageTitle leftImageTitle leftImageTitle leftImageTitle leftImageTitle'
   return (
     <>
-      <div className="border-black border w-full h-[300px] my-4"></div>
+      {/* <div className="border-black border w-full h-[300px] my-4"></div> */}
 
       {[0, 1, 2, 3, 4, 5].map((e) => (
         <Link
@@ -32,6 +32,7 @@ const Ads = () => {
           </div>
         </Link>
       ))}
+      {/* <div className="border-black border w-full h-[300px] my-4"></div> */}
     </>
   )
 }
